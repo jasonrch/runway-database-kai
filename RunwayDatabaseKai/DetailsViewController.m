@@ -28,6 +28,7 @@
     //[self.detailScrollView setContentSize:]
 }
 
+// Wanted to create a more detailed page whenever the user selected a dress. I wanted more interactivity in the collection view and wanted to try out UIViewControllerAnimationTransitioning. Success!
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -37,19 +38,47 @@
     self.detailFitNotes.text = _selectedItem.fitNotes;
     
     // Here we use the new provided sd_setImageWithURL: method to load the web image
-    [self.dressImageView1080x sd_setImageWithURL:[NSURL URLWithString:_selectedItem.dressimage1080x]
-                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]
-                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//    [self.dressImageView1080x sd_setImageWithURL:[NSURL URLWithString:_selectedItem.dressimage1080x]
+//                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]
+//                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//
+//                             }];
+    [self loadHiResDressImage];
 
-                             }];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)loadHiResDressImage{
+    
+    __weak typeof(self) weakSelf = self;
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:_selectedItem.dressimage183x]
+                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                                 __strong __typeof(weakSelf) strongSelf = weakSelf;
+                                                                 if (error) {
+                                                                     NSLog(@"ERROR: %@", error);
+                                                                 }
+                                                                 else {
+                                                                     NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
+                                                                     if (200 == httpResponse.statusCode) {
+                                                                         UIImage * image = [UIImage imageWithData:data];
+                                                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                                                             strongSelf.dressImageView1080x.image = image;
+                                                                         });
+                                                                     } else {
+                                                                         NSLog(@"Couldn't load image at URL: %@", _selectedItem.dressimage183x);
+                                                                         NSLog(@"HTTP %ld", (long)httpResponse.statusCode);
+                                                                     }
+                                                                 }
+                                                             }];
+    
+    [task resume];
+}
 
+// Haven't played around with SFSafariViewController. It is a new subclass of UIViewController that was introduced in iOS 9.
+// I thought it was the perfect opportunity to check it out. The legacyProductURL attribute really sparked the idea for me.
 -(IBAction)ViewDressOnSite:(id)sender{
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
        

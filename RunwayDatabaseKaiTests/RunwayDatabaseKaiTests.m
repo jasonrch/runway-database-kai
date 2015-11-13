@@ -31,7 +31,7 @@ static const NSString* jsonStr;
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
-    // Check to see if the DesignerItem class took in juck
+    // Check to see if the DesignerItem class took in junk
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     [dict setValue:@"Audigier" forKey:@"designerName"];
     [dict setValue:@"Julio Reyes il sviluppatore iOS" forKey:@"displayName"];
@@ -50,11 +50,9 @@ static const NSString* jsonStr;
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     XCTAssertNoThrow([[RTRDataWrapper sharedDressManager]fetchmeDesignersAndAccessories:^(NSArray *designerArray, NSError *error) {
         printf("Runs.");
-    }]);
-    
-    [[RTRDataWrapper sharedDressManager]fetchmeDesignersAndAccessories:^(NSArray *designerArray, NSError *error) {
         
-        // Check for dupes
+        
+        // Check for dupes. Note: given how NSSet works, This is redundant.
         NSCountedSet *cs = [[NSCountedSet alloc] initWithArray:designerArray];
         NSLog(@"object count greater than 1 are");
         for(id designer in cs){
@@ -63,16 +61,18 @@ static const NSString* jsonStr;
         
         // Check to see if the list of designers was properly populated and no error resulted from this.
         XCTAssertTrue(designerArray.count > 0 && error == nil);
-    }];
-    
+        
+    }]);
 }
 
 - (void)testfetchmeDressesbyDesigner{
     [[RTRDataWrapper sharedDressManager]fetchmeDressesByDesigner:@"Marina Rinaldi" completionBlock:^(NSArray *designerArray, NSError *error) {
+        // Check to see if the results have been populated and documented onto the proper class
         XCTAssertTrue(designerArray[0] == [DesignerItem class]);
         XCTAssertTrue(designerArray.count > 0 && error == nil);
     }];
     
+    // This test should fail. Clearly, i'm not a designer.
     [[RTRDataWrapper sharedDressManager]fetchmeDressesByDesigner:@"Julio Reyes III" completionBlock:^(NSArray *designerArray, NSError *error) {
         XCTAssertFalse(designerArray.count > 0);
     }];

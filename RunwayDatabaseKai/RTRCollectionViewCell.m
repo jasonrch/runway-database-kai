@@ -53,6 +53,9 @@
 
 -(void)setUpWithDesignerItem:(DesignerItem *)item{
     
+    
+    // Again, I use the weakify/strongify pattern. By capturing the weak reference to self, the block won’t maintain a strong relationship to the object. Then creating a strong self reference inside the block so that the reference will be in the block and alive for as long as the block is. It won’t prevent the self object for being deallocated so we are still avoiding the strong reference cycle.
+    
     __weak RTRCollectionViewCell *weakSelf = self;
     
     weakSelf.dressRentPrice.text = item.displayPriceString;

@@ -21,6 +21,8 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 
+    /* This is what is called the weakify/strongify pattern. Blocks maintain strong references to any captured objects, including self, so you can end up with a strong reference cycle, if you are not careful. To avoid strong reference cycles I needed to use weak references. By capturing the weak reference to self, the block won’t maintain a strong relationship to the object. If the pointer is nil, however, then  the methods inside the block won’t get called and so the block won't do what it is supposed to. Creating a strong self in the block will retain 'self' if WeakSelf = self, enabling me to plug in data or execute code or update the UI in the current view controller. This is a great way to avoid retain cycles
+     */
     
     __weak typeof(self) weakSelf = self;
     [[RTRDataWrapper sharedDressManager] fetchmeDesignersAndAccessories:^(NSArray *designerArray, NSError *error) {

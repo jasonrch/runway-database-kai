@@ -63,6 +63,7 @@
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
         
         // Reset the cell from the hidden status
+        // Clean up
         cell.dressImageView.hidden = NO;
     }];
     

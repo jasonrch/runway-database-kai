@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
 #import "DesignerItem.h"
 
 typedef void (^RTRCompletionBlock)(NSArray *designerArray, NSError *error);
 
 @class DesignerItem;
-@interface RTRDataWrapper : NSObject<NSURLSessionDataDelegate>
+@interface RTRDataWrapper : NSObject<NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
 
 +(RTRDataWrapper *)sharedDressManager;
 

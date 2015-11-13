@@ -8,6 +8,8 @@
 
 #import "RTRDataWrapper.h"
 
+
+// Constants for the base URL and its respective endpointsb
 static NSString * const RTRBaseURL = @"http://static.sqvr.co";
 static NSString * const RTRDesignerEndpoint = @"designer-dresses.json";
 static NSString * const RTRAccessoryEndpoint = @"designer-accesories.json";
@@ -25,26 +27,30 @@ NSInteger const JR3ErrorCode = -42;
 @implementation RTRDataWrapper
 
 +(RTRDataWrapper *)sharedDressManager{
+
     static RTRDataWrapper *sharedRTRAPIClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+        // I do all the config for this class here.
         sharedRTRAPIClient = [[self alloc] initWithRunwayURL:[NSURL URLWithString:RTRBaseURL]];
         sharedRTRAPIClient.rtrURLSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:sharedRTRAPIClient delegateQueue:nil];
         [sharedRTRAPIClient.rtrURLSession.configuration setHTTPMaximumConnectionsPerHost:1];
         [sharedRTRAPIClient.rtrURLSession.configuration setRequestCachePolicy:NSURLRequestReloadIgnoringCacheData];
 
         sharedRTRAPIClient.rtrURLSession.sessionDescription = @"Let's get pretty dresses.";
+        
     });
     return sharedRTRAPIClient;
 }
-
+// This is weird, but in Objective-C, when you have a singleton class, you can still create a new instance of the singleton class just by using alloc/init. This defeats the whole purpose of the singleton, being that only one instance should exist. So, the workaround is to override init and nuke the app whenever another developer tries to create another singleton.
 - (id)init
 {
     NSException *exception = [NSException exceptionWithName:@"Singleton" reason:@"Use +(RTRDataWrapper *)sharedDressManager instead" userInfo:nil];
     [exception raise];
     return nil;
 }
-
+// This custon init method will only be called once, when the singletion is first initialized.
 -(instancetype)initWithRunwayURL:(NSURL *)url{
     if (self = [super init]) {
         self.baseURL = url;
@@ -58,7 +64,8 @@ NSInteger const JR3ErrorCode = -42;
 ****/
 
 -(void)fetchmeDesignersAndAccessories:(RTRCompletionBlock)completionHandler{
-    
+    [SVProgressHUD showWithStatus:@"Loading.."];
+
     NSURL *fullURL =[self.baseURL URLByAppendingPathComponent:RTRDesignerEndpoint];
     NSMutableURLRequest *designerRequest = [NSMutableURLRequest requestWithURL:fullURL];
     designerRequest.HTTPMethod = @"GET";
@@ -66,6 +73,8 @@ NSInteger const JR3ErrorCode = -42;
     [designerRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [designerRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    
+    // I create the MSMUtableSet and the NSURLSessionDataTask here. I also plug in the __block qualifier because I don't want to retain anything. The whould purpose is the execute the first task, put the results in the set, then execute the next task, dump those results in the set, then send the list in a completion block.
     __block NSMutableSet* designerMutableSet = [NSMutableSet set];
     
     __block NSURLSessionDataTask *downloadDesignerTask = nil;
@@ -96,13 +105,16 @@ NSInteger const JR3ErrorCode = -42;
         
         [designerMutableSet addObjectsFromArray:[results valueForKey:@"designer"]];
         
+         // I sort out the list of designers using NSComparator and organizing the list in ascending order
         NSArray *sortedDesignerList =  [designerMutableSet.allObjects sortedArrayUsingComparator: ^(NSString* string1, NSString* string2)
                                         {
                                             return [string1 localizedCompare: string2];
                                         }];
          
+         // Info gets sent to the main queue once the list is complete and sorted
          dispatch_async(dispatch_get_main_queue(), ^{
              completionHandler(sortedDesignerList, error);
+             [SVProgressHUD dismiss];
          });
         
     }];
@@ -110,14 +122,18 @@ NSInteger const JR3ErrorCode = -42;
     [downloadDesignerTask resume];
     
 }
+
+// This is a much more simpler call, being that I only make only one task.
 -(void)fetchmeDressesByDesigner:(NSString *)designerName completionBlock:(RTRCompletionBlock)completionHandler{
-    
+    [SVProgressHUD showWithStatus:@"Grabbing dresses.."];
+
     NSMutableURLRequest *dressRequest = [NSMutableURLRequest requestWithURL:[self.baseURL URLByAppendingPathComponent:RTRDressEndpoint]];
     dressRequest.HTTPMethod = @"GET";
     
     [dressRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [dressRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    // Again, I do not wish to retain anything here.
     __block NSMutableArray *filtereddresses = [NSMutableArray new];
     
     NSURLSessionDataTask *downloadDressTask = [self.rtrURLSession dataTaskWithRequest:dressRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *connectionError) {
@@ -135,6 +151,7 @@ NSInteger const JR3ErrorCode = -42;
         else{
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&connectionError];
             
+            // This will grab all the dresses
             NSArray* alldresses = [results valueForKey:@"products"];
 
             // Set a predicate for filtering.
@@ -149,6 +166,7 @@ NSInteger const JR3ErrorCode = -42;
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionHandler(filtereddresses, connectionError);
+                [SVProgressHUD dismiss];
             });
         }
     }];
@@ -157,8 +175,5 @@ NSInteger const JR3ErrorCode = -42;
 
 }
 
-- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
 
 @end

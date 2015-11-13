@@ -75,6 +75,7 @@ static NSString * const reuseIdentifier = @"DressCell";
         dresscell = [[RTRCollectionViewCell alloc]init];
     }
     
+    // Having the set up for the cell within the custom cell task create much cleaner code.
     [dresscell setUpWithDesignerItem:currentDesignerItem];
 
     return dresscell;
@@ -89,7 +90,8 @@ static NSString * const reuseIdentifier = @"DressCell";
 }
 
 #pragma mark - UIViewTransitionAnimation Delegate
-
+// A new frontier for me. I believe that one of the best ways to create a stellar app is to create a kind of show. So
+// I made this Transition animation to really spice up the app.
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                             animationControllerForOperation:(UINavigationControllerOperation)operation
                                                          fromViewController:(UIViewController *)fromVC
