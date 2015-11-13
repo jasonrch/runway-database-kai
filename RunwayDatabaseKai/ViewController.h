@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DesignerItem.h"
 
-@interface ViewController : UIViewController
+@class DesignerItem;
+@interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate>
 
+@property(nonatomic, weak) IBOutlet UICollectionView *dressCollectionView;
+@property(nonatomic, strong) NSArray *dresses;
+
+@property(nonatomic, copy) NSString *designerName;
 
 @end
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D2901401BF52960002560FE /* DressDetailsVCAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29013F1BF52960002560FE /* DressDetailsVCAnimatedTransitioning.m */; };
+		4DC34D1B1BF5192500A16DF2 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC34D1A1BF5192500A16DF2 /* bg@2x.png */; };
+		4DC34D1E1BF522B600A16DF2 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC34D1D1BF522B600A16DF2 /* DetailsViewController.m */; };
 		4DD9DB601BF2BDD300963A23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB5F1BF2BDD300963A23 /* main.m */; };
 		4DD9DB631BF2BDD300963A23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB621BF2BDD300963A23 /* AppDelegate.m */; };
 		4DD9DB661BF2BDD300963A23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB651BF2BDD300963A23 /* ViewController.m */; };
@@ -15,6 +18,14 @@
 		4DD9DB6E1BF2BDD300963A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD9DB6C1BF2BDD300963A23 /* LaunchScreen.storyboard */; };
 		4DD9DB791BF2BDD300963A23 /* RunwayDatabaseKaiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB781BF2BDD300963A23 /* RunwayDatabaseKaiTests.m */; };
 		4DD9DB841BF2BDD300963A23 /* RunwayDatabaseKaiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB831BF2BDD300963A23 /* RunwayDatabaseKaiUITests.m */; };
+		4DD9DB9F1BF2BE8900963A23 /* DesignerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB921BF2BE8900963A23 /* DesignerItem.m */; };
+		4DD9DBA01BF2BE8900963A23 /* DesignerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB941BF2BE8900963A23 /* DesignerTableViewController.m */; };
+		4DD9DBA11BF2BE8900963A23 /* JR3PersistenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB961BF2BE8900963A23 /* JR3PersistenceController.m */; };
+		4DD9DBA21BF2BE8900963A23 /* RTRCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB981BF2BE8900963A23 /* RTRCollectionViewCell.m */; };
+		4DD9DBA31BF2BE8900963A23 /* RTRDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB9A1BF2BE8900963A23 /* RTRDataWrapper.m */; };
+		4DD9DBA51BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9DB9D1BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodeld */; };
+		4DE6F7AD1BF55CDB00B0EBDD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6F7AC1BF55CDB00B0EBDD /* WebViewController.m */; };
+		7FD0E7727BF3B42354EB75E0 /* libPods-RunwayDatabaseKai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0407072A33A73999613497 /* libPods-RunwayDatabaseKai.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0407072A33A73999613497 /* libPods-RunwayDatabaseKai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunwayDatabaseKai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E6416AD7580F6EFA98A44F7 /* Pods-RunwayDatabaseKai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunwayDatabaseKai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunwayDatabaseKai/Pods-RunwayDatabaseKai.debug.xcconfig"; sourceTree = "<group>"; };
+		4D29013E1BF52960002560FE /* DressDetailsVCAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DressDetailsVCAnimatedTransitioning.h; sourceTree = "<group>"; };
+		4D29013F1BF52960002560FE /* DressDetailsVCAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DressDetailsVCAnimatedTransitioning.m; sourceTree = "<group>"; };
+		4DC34D1A1BF5192500A16DF2 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		4DC34D1C1BF522B600A16DF2 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		4DC34D1D1BF522B600A16DF2 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		4DD9DB5B1BF2BDD300963A23 /* RunwayDatabaseKai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunwayDatabaseKai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD9DB5F1BF2BDD300963A23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4DD9DB611BF2BDD300963A23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +69,20 @@
 		4DD9DB7F1BF2BDD300963A23 /* RunwayDatabaseKaiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunwayDatabaseKaiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD9DB831BF2BDD300963A23 /* RunwayDatabaseKaiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunwayDatabaseKaiUITests.m; sourceTree = "<group>"; };
 		4DD9DB851BF2BDD300963A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DD9DB911BF2BE8900963A23 /* DesignerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerItem.h; sourceTree = "<group>"; };
+		4DD9DB921BF2BE8900963A23 /* DesignerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerItem.m; sourceTree = "<group>"; };
+		4DD9DB931BF2BE8900963A23 /* DesignerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerTableViewController.h; sourceTree = "<group>"; };
+		4DD9DB941BF2BE8900963A23 /* DesignerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerTableViewController.m; sourceTree = "<group>"; };
+		4DD9DB951BF2BE8900963A23 /* JR3PersistenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JR3PersistenceController.h; sourceTree = "<group>"; };
+		4DD9DB961BF2BE8900963A23 /* JR3PersistenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JR3PersistenceController.m; sourceTree = "<group>"; };
+		4DD9DB971BF2BE8900963A23 /* RTRCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRCollectionViewCell.h; sourceTree = "<group>"; };
+		4DD9DB981BF2BE8900963A23 /* RTRCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRCollectionViewCell.m; sourceTree = "<group>"; };
+		4DD9DB991BF2BE8900963A23 /* RTRDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRDataWrapper.h; sourceTree = "<group>"; };
+		4DD9DB9A1BF2BE8900963A23 /* RTRDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRDataWrapper.m; sourceTree = "<group>"; };
+		4DD9DB9E1BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunwayDatabaseKai.xcdatamodel; sourceTree = "<group>"; };
+		4DE6F7AB1BF55CDB00B0EBDD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		4DE6F7AC1BF55CDB00B0EBDD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		80166FC12A6FCB8A5EC08555 /* Pods-RunwayDatabaseKai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunwayDatabaseKai.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunwayDatabaseKai/Pods-RunwayDatabaseKai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD0E7727BF3B42354EB75E0 /* libPods-RunwayDatabaseKai.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +111,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FE662B5D278A124B65B0B46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E6416AD7580F6EFA98A44F7 /* Pods-RunwayDatabaseKai.debug.xcconfig */,
+				80166FC12A6FCB8A5EC08555 /* Pods-RunwayDatabaseKai.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4D2901411BF52964002560FE /* Animation Transition */ = {
+			isa = PBXGroup;
+			children = (
+				4D29013E1BF52960002560FE /* DressDetailsVCAnimatedTransitioning.h */,
+				4D29013F1BF52960002560FE /* DressDetailsVCAnimatedTransitioning.m */,
+			);
+			name = "Animation Transition";
+			sourceTree = "<group>";
+		};
+		4D2901421BF531E7002560FE /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				4DD9DB991BF2BE8900963A23 /* RTRDataWrapper.h */,
+				4DD9DB9A1BF2BE8900963A23 /* RTRDataWrapper.m */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
 		4DD9DB521BF2BDD300963A23 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +145,8 @@
 				4DD9DB771BF2BDD300963A23 /* RunwayDatabaseKaiTests */,
 				4DD9DB821BF2BDD300963A23 /* RunwayDatabaseKaiUITests */,
 				4DD9DB5C1BF2BDD300963A23 /* Products */,
+				1FE662B5D278A124B65B0B46 /* Pods */,
+				8EC181D9CDB44F406F461976 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,13 +165,18 @@
 			children = (
 				4DD9DB611BF2BDD300963A23 /* AppDelegate.h */,
 				4DD9DB621BF2BDD300963A23 /* AppDelegate.m */,
-				4DD9DB641BF2BDD300963A23 /* ViewController.h */,
-				4DD9DB651BF2BDD300963A23 /* ViewController.m */,
-				4DD9DB671BF2BDD300963A23 /* Main.storyboard */,
+				4DC34D1A1BF5192500A16DF2 /* bg@2x.png */,
+				4D2901421BF531E7002560FE /* DAO */,
 				4DD9DB6A1BF2BDD300963A23 /* Assets.xcassets */,
+				4DD9DBA61BF2BE9900963A23 /* Data Model */,
+				4DD9DBA71BF2BEA700963A23 /* Custom Cells */,
+				4DD9DBA91BF2C2D100963A23 /* Controllers */,
+				4DD9DBA81BF2C24E00963A23 /* Core Data? */,
 				4DD9DB6C1BF2BDD300963A23 /* LaunchScreen.storyboard */,
-				4DD9DB6F1BF2BDD300963A23 /* Info.plist */,
+				4DD9DB671BF2BDD300963A23 /* Main.storyboard */,
+				4DD9DB9D1BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodeld */,
 				4DD9DB5E1BF2BDD300963A23 /* Supporting Files */,
+				4D2901411BF52964002560FE /* Animation Transition */,
 			);
 			path = RunwayDatabaseKai;
 			sourceTree = "<group>";
@@ -117,6 +184,7 @@
 		4DD9DB5E1BF2BDD300963A23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4DD9DB6F1BF2BDD300963A23 /* Info.plist */,
 				4DD9DB5F1BF2BDD300963A23 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -140,6 +208,56 @@
 			path = RunwayDatabaseKaiUITests;
 			sourceTree = "<group>";
 		};
+		4DD9DBA61BF2BE9900963A23 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DD9DB911BF2BE8900963A23 /* DesignerItem.h */,
+				4DD9DB921BF2BE8900963A23 /* DesignerItem.m */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		4DD9DBA71BF2BEA700963A23 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4DD9DB971BF2BE8900963A23 /* RTRCollectionViewCell.h */,
+				4DD9DB981BF2BE8900963A23 /* RTRCollectionViewCell.m */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		4DD9DBA81BF2C24E00963A23 /* Core Data? */ = {
+			isa = PBXGroup;
+			children = (
+				4DD9DB951BF2BE8900963A23 /* JR3PersistenceController.h */,
+				4DD9DB961BF2BE8900963A23 /* JR3PersistenceController.m */,
+			);
+			name = "Core Data?";
+			sourceTree = "<group>";
+		};
+		4DD9DBA91BF2C2D100963A23 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DD9DB931BF2BE8900963A23 /* DesignerTableViewController.h */,
+				4DD9DB941BF2BE8900963A23 /* DesignerTableViewController.m */,
+				4DD9DB641BF2BDD300963A23 /* ViewController.h */,
+				4DD9DB651BF2BDD300963A23 /* ViewController.m */,
+				4DC34D1C1BF522B600A16DF2 /* DetailsViewController.h */,
+				4DC34D1D1BF522B600A16DF2 /* DetailsViewController.m */,
+				4DE6F7AB1BF55CDB00B0EBDD /* WebViewController.h */,
+				4DE6F7AC1BF55CDB00B0EBDD /* WebViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8EC181D9CDB44F406F461976 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C0407072A33A73999613497 /* libPods-RunwayDatabaseKai.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +265,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DD9DB881BF2BDD300963A23 /* Build configuration list for PBXNativeTarget "RunwayDatabaseKai" */;
 			buildPhases = (
+				D343BEDC25DC47CB67424F29 /* Check Pods Manifest.lock */,
 				4DD9DB571BF2BDD300963A23 /* Sources */,
 				4DD9DB581BF2BDD300963A23 /* Frameworks */,
 				4DD9DB591BF2BDD300963A23 /* Resources */,
+				76597104FB1CD1926CA79C93 /* Embed Pods Frameworks */,
+				58A7BB4D842D06E6A5C9249A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +367,7 @@
 				4DD9DB6E1BF2BDD300963A23 /* LaunchScreen.storyboard in Resources */,
 				4DD9DB6B1BF2BDD300963A23 /* Assets.xcassets in Resources */,
 				4DD9DB691BF2BDD300963A23 /* Main.storyboard in Resources */,
+				4DC34D1B1BF5192500A16DF2 /* bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,13 +387,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		58A7BB4D842D06E6A5C9249A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RunwayDatabaseKai/Pods-RunwayDatabaseKai-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76597104FB1CD1926CA79C93 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RunwayDatabaseKai/Pods-RunwayDatabaseKai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D343BEDC25DC47CB67424F29 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4DD9DB571BF2BDD300963A23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4DD9DB661BF2BDD300963A23 /* ViewController.m in Sources */,
+				4DC34D1E1BF522B600A16DF2 /* DetailsViewController.m in Sources */,
+				4DD9DBA11BF2BE8900963A23 /* JR3PersistenceController.m in Sources */,
+				4DD9DBA21BF2BE8900963A23 /* RTRCollectionViewCell.m in Sources */,
+				4DD9DBA51BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodeld in Sources */,
+				4DD9DB9F1BF2BE8900963A23 /* DesignerItem.m in Sources */,
+				4DD9DBA01BF2BE8900963A23 /* DesignerTableViewController.m in Sources */,
+				4DE6F7AD1BF55CDB00B0EBDD /* WebViewController.m in Sources */,
 				4DD9DB631BF2BDD300963A23 /* AppDelegate.m in Sources */,
+				4DD9DBA31BF2BE8900963A23 /* RTRDataWrapper.m in Sources */,
+				4D2901401BF52960002560FE /* DressDetailsVCAnimatedTransitioning.m in Sources */,
 				4DD9DB601BF2BDD300963A23 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -400,7 +579,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -409,6 +588,7 @@
 		};
 		4DD9DB891BF2BDD300963A23 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E6416AD7580F6EFA98A44F7 /* Pods-RunwayDatabaseKai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RunwayDatabaseKai/Info.plist;
@@ -420,6 +600,7 @@
 		};
 		4DD9DB8A1BF2BDD300963A23 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80166FC12A6FCB8A5EC08555 /* Pods-RunwayDatabaseKai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RunwayDatabaseKai/Info.plist;
@@ -496,6 +677,7 @@
 				4DD9DB8A1BF2BDD300963A23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DD9DB8B1BF2BDD300963A23 /* Build configuration list for PBXNativeTarget "RunwayDatabaseKaiTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +686,7 @@
 				4DD9DB8D1BF2BDD300963A23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DD9DB8E1BF2BDD300963A23 /* Build configuration list for PBXNativeTarget "RunwayDatabaseKaiUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,8 +695,22 @@
 				4DD9DB901BF2BDD300963A23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4DD9DB9D1BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4DD9DB9E1BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodel */,
+			);
+			currentVersion = 4DD9DB9E1BF2BE8900963A23 /* RunwayDatabaseKai.xcdatamodel */;
+			path = RunwayDatabaseKai.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4DD9DB531BF2BDD300963A23 /* Project object */;
 }

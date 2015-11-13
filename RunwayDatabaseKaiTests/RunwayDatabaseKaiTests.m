@@ -2,15 +2,18 @@
 //  RunwayDatabaseKaiTests.m
 //  RunwayDatabaseKaiTests
 //
-//  Created by Julio Reyes on 11/10/15.
+//  Created by Julio Reyes on 11/9/15.
 //  Copyright © 2015 Julio Reyes. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "RTRDataWrapper.h"
+#import "DesignerItem.h"
 
 @interface RunwayDatabaseKaiTests : XCTestCase
 
 @end
+static const NSString* jsonStr;
 
 @implementation RunwayDatabaseKaiTests
 
@@ -24,11 +27,56 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testDesignerItemClass {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    // Check to see if the DesignerItem class took in juck
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    [dict setValue:@"Audigier" forKey:@"designerName"];
+    [dict setValue:@"Julio Reyes il sviluppatore iOS" forKey:@"displayName"];
+    [dict setValue:@"Just me wearing a pretty-witty dress." forKey:@"productDetail"];
+    [dict setValue:@"$350" forKey:@"displayPriceString"];
+    [dict setValue:@"$350" forKey:@"displayPrice8DayString"];
+    [dict setValue:@"NOtaURL" forKey:@"dressimage183x"];
+    [dict setValue:@"StillNOtAURL" forKey:@"dressimage1080x"];
+    
+    DesignerItem *item = [[DesignerItem alloc]initWithDictionary:dict];
+    XCTAssertFalse(item == [DesignerItem class]);
+    
+}
+- (void)testfetchmeDesignersAndAccessories{
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    XCTAssertNoThrow([[RTRDataWrapper sharedDressManager]fetchmeDesignersAndAccessories:^(NSArray *designerArray, NSError *error) {
+        printf("Runs.");
+    }]);
+    
+    [[RTRDataWrapper sharedDressManager]fetchmeDesignersAndAccessories:^(NSArray *designerArray, NSError *error) {
+        
+        // Check for dupes
+        NSCountedSet *cs = [[NSCountedSet alloc] initWithArray:designerArray];
+        NSLog(@"object count greater than 1 are");
+        for(id designer in cs){
+            XCTAssertFalse([cs countForObject:designer] > 1);
+        }
+        
+        // Check to see if the list of designers was properly populated and no error resulted from this.
+        XCTAssertTrue(designerArray.count > 0 && error == nil);
+    }];
+    
 }
 
+- (void)testfetchmeDressesbyDesigner{
+    [[RTRDataWrapper sharedDressManager]fetchmeDressesByDesigner:@"Marina Rinaldi" completionBlock:^(NSArray *designerArray, NSError *error) {
+        XCTAssertTrue(designerArray[0] == [DesignerItem class]);
+        XCTAssertTrue(designerArray.count > 0 && error == nil);
+    }];
+    
+    [[RTRDataWrapper sharedDressManager]fetchmeDressesByDesigner:@"Julio Reyes III" completionBlock:^(NSArray *designerArray, NSError *error) {
+        XCTAssertFalse(designerArray.count > 0);
+    }];
+}
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
