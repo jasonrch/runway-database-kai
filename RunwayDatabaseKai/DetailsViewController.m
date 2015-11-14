@@ -43,6 +43,7 @@
 //                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 //
 //                             }];
+    // Async load image using NSURLSessionDataTask
     [self loadHiResDressImage];
 
 }

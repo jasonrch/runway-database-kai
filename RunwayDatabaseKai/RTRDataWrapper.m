@@ -60,7 +60,7 @@ NSInteger const JR3ErrorCode = -42;
 
 /****
  
- * To be honest, I didn't how to go about it. My whole thought process on how the get the designers and accessories was how was I gonna able to get both of the endpoints' results and merge them efficiently. Using the NSMutableSet was the right call for me to grab a list of indices and add the objects of both results. Since adding Objects to the NSMutableSet is a O(1), I could add the objects all in one shot. In terms of calling the asynchronous request for both endpoints, I wasn't too sure to use dispatch_group to call request simultaneously and leave the group. But I figured to do a more, modern approach so I decided to create two Data Task using NSURLSession and call the first task then call the next task when the results from the first task get added to the NSMutableSet. It is done in a more, serial manner but it was simple and effiecient...with no strong references to each other.
+ * To be honest, I didn't how to go about it. My whole thought process on how the get the designers and accessories was how was I gonna able to get both of the endpoints' results and merge them efficiently. Using the NSMutableSet was the right call for me to grab a list of indices and add the objects of both results. Since adding Objects to the NSMutableSet is a O(1), I could add the objects all in one shot. In terms of calling the asynchronous request for both endpoints, I wasn't too sure to use dispatch_group to call request simultaneously and leave the group. But I figured to do a more, modern approach so I decided to create two Data Task using NSURLSession and call the first task then call the next task when the results from the first task get added to the NSMutableSet. It is done in a more, serial manner but it was simple and efficient...with no strong references to each other.
 ****/
 
 -(void)fetchmeDesignersAndAccessories:(RTRCompletionBlock)completionHandler{
@@ -92,10 +92,9 @@ NSInteger const JR3ErrorCode = -42;
             NSError *dataError = [NSError errorWithDomain:JR3ErrorDomain code:JR3ErrorCode userInfo:userInfo];
             completionHandler(nil, dataError);
         }
-        else{
+        else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&connectionError];
             [designerMutableSet addObjectsFromArray:[results valueForKey:@"designer"]];
-            [secondTask resume];
         }
     }];
     
@@ -120,7 +119,8 @@ NSInteger const JR3ErrorCode = -42;
     }];
     
     [downloadDesignerTask resume];
-    
+    [secondTask resume];
+
 }
 
 // This is a much more simpler call, being that I only make only one task.
